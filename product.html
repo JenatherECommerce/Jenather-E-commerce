@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./css/product.css">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <div class="icon">
+            <a href="#"><img src="./images/header_img/icon.png" alt="image here" height=40></a>
+        </div>
+        <nav class="nav-bar">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Promos</a></li>
+                <li><a href="#">Financing</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+        </nav>
+        <div class="actions">
+            <input type="text" id="search" placeholder="Seach for cars...">
+            <button onclick="searchCars()">Search</button>
+            <button onclick="location.href='log_in.html'">Login</button>
+            <button onclick="location.href='registration_form.html'">SignUp</button>
+            <!-- <button onclick="location.href='registration_form.html'">Sign Up</button> -->
+        </div>
+        <div class="toggle-btn">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+        <nav class="dropdown-menu">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Promos</a></li>
+                <li><a href="#">Financing</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="hatchbacks">
+         <div class="title">
+            <h1>Hatchbacks</h1>
+        </div>
+        <div class="card-container">
+            <div class="card" onclick="toggleCard(this)">
+                <img src="./images/product_img/Celerio.jpg" alt="">
+                <div class="card-content">
+                    <h2 class="card-title">Product 1</h2>
+                    <p class="card-description">Click To Expand for more details</p>
+                    <div class="card-info">
+                        <p><strong>Details:</strong> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quod fugit dolore dignissimos dicta nesciunt rerum totam earum! Odio, repellat earum quidem pariatur ducimus quis nisi voluptatum dicta, expedita, iusto optio?</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card" onclick="toggleCard(this)">
+                <img src="./images/product_img/Celerio1.jpg" alt="">
+                <div class="card-content">
+                    <h2 class="card-title">Product 2</h2>
+                    <p class="card-description">Click To Expand for more details</p>
+                    <div class="card-info">
+                        <p><strong>Details:</strong> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quod fugit dolore dignissimos dicta nesciunt rerum totam earum! Odio, repellat earum quidem pariatur ducimus quis nisi voluptatum dicta, expedita, iusto optio?</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card" onclick="toggleCard(this)">
+                <img src="./images/product_img/suzuki apv.jpg" alt="">
+                <div class="card-content">
+                    <h2 class="card-title">Product 2</h2>
+                    <p class="card-description">Click To Expand for more details</p>
+                    <div class="card-info">
+                        <p><strong>Details:</strong> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quod fugit dolore dignissimos dicta nesciunt rerum totam earum! Odio, repellat earum quidem pariatur ducimus quis nisi voluptatum dicta, expedita, iusto optio?</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="promos">
+        <div class="Promos">
+            <h1>Promos</h1>
+        </div>
+        <div class="slider">
+            <div class="list">
+                <div class="item">
+                    <img src="/images/product_img/suzuki promo cars.jpg" alt="" onclick="location.href='#'">
+                </div>
+                <div class="item">
+                    <img src="/images/product_img/suzuki promo.png" alt="">
+                </div>
+                <div class="item">
+                    <img src="/images/product_img/suzuki promo cars.jpg" alt="">
+                </div>
+                <div class="item">
+                    <img src="/images/product_img/suzuki promo.png" alt="">
+                </div>
+            </div>
+            <div class="buttons">
+                <button id="previous"><</button>
+                <button id="next">></button>
+            </div>
+            <ul class="dots">
+                <li class="active"></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+        <!-- <div class="container">
+            <div class="wrapper">
+                <div class="wrapper-holder">
+                    <div id="slider-img-1" onclick="location.href='#'"></div>
+                    <div id="slider-img-2" onclick="location.href='#'"></div>
+                    <div id="slider-img-3" onclick="location.href='#'"></div>
+                    <div id="slider-img-4" onclick="location.href='#'"></div>
+                </div>
+            </div>
+            <div class="button-holder">
+                <a href="#slider-img-1" class="button"></a>
+                <a href="#slider-img-2" class="button"></a>
+                <a href="#slider-img-3" class="button"></a>
+                <a href="#slider-img-4" class="button"></a>
+            </div>
+        </div> -->
+    </section>
+    <script src="./js/script.js">
+    </script>
+</body>
+</html>
