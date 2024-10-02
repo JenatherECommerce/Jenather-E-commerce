@@ -1,39 +1,3 @@
-// const items = [
-//     {name: 'Item1', img: 'path'},
-//     {name: 'Item1', img: 'path'},
-//     {name: 'Item1', img: 'path'}
-// ];
-
-// const itemsList = document.getElementById('itemList');
-// const searchBar = document.getElementById('searchBar');
-
-// function displayItems(items) {
-//     itemsList.innerHTML = '';
-//     items.forEach(item => {
-//         const itemDiv = document.createElement('div');
-//         itemDiv.className = 'item';
-
-//         const itemImg = document.createElement('img');
-//         itemImg.src = item.img;
-//         itemImg.alt = item.name;
-
-//         const itemName = document.createElement('span');
-//         itemName.textContent = item.name;
-
-//         itemDiv.appendChild(itemImg);
-//         itemDiv.appendChild(itemName);
-//         itemsList.appendChild(itemDiv);
-//     })
-// }
-
-// searchBar.addEventListener('keyup',(e) => {
-//     const searchString = e.target.value.toLowerCase();
-//     const filteredItems = items.filter(item => item.name.toLowerCase().includes(searchString));
-//     displayItems(filteredItems);
-// })
-
-// displayItems(items);
-
 const toggleBtn = document.querySelector('.toggle-btn')
         const toggleBtnIcon = document.querySelector('.toggle-btn i')
         const dropDownMenu = document.querySelector('.dropdown-menu')

@@ -11,6 +11,7 @@ include("connect.php");
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./css/header.css">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
 </head>
 <body>
     <header>
@@ -32,7 +33,7 @@ include("connect.php");
             <button onclick="location.href='registration_form.php'">Sign Up</button>
         </div>
     </header>
-    <section>
+    <section class="header">
         <div class="container">
             <img src="./images/header_img/icon transparent.png" alt="Jenather Logo" height="400">
             <h1>Ready To Have Your First Car?</h1>
@@ -52,100 +53,9 @@ include("connect.php");
             </button>
         </div>
     </section>
-    <section class="hatchbacks">
-         <div class="title">
-            <h1>Hatchbacks</h1>
-        </div>
-        <div class="card-container">
-            <div class="card" onclick="toggleCard(this)">
-                <img src="./images/product_img/Celerio.jpg" alt="">
-                <div class="card-content">
-                    <div class="content">
-                        <h2 class="card-title">Product 1</h2>
-                        <p class="card-description">Click To Expand for more details</p>
-                    </div>
-                    <div class="card-info">
-                        <h3>Product Info</h3>
-                        <div class="card-info-btns">
-                            <button class="card-information">Engine & Performance</button>
-                            <button class="card-information">Dimension</button>
-                            <button class="card-information">Interior & Comfort</button>
-                            <button class="card-information">Safety</button>
-                            <button class="card-information">Wheels</button>
-                            <button class="card-information">Features</button>
-                        </div>
-                        <hr>
-                        <div class="details">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora itaque deleniti incidunt nobis dicta possimus nam, quia placeat asperiores, neque unde repudiandae fugiat, natus nulla officiis quibusdam voluptate provident eveniet.
-                        </div>
-                        <div class="process-btn">
-                            <button class="goback-btn">Go Back</button>
-                            <button class="purchase-btn">Purchase</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="card" onclick="toggleCard(this)">
-                <img src="./images/product_img/Celerio1.jpg" alt="">
-                <div class="card-content">
-                    <div class="content">
-                        <h2 class="card-title">Product 1</h2>
-                        <p class="card-description">Click To Expand for more details</p>
-                    </div>
-                    <div class="card-info">
-                        <h3>Product Info</h3>
-                        <div class="card-info-btns">
-                            <button class="card-information">Engine & Performance</button>
-                            <button class="card-information">Dimension</button>
-                            <button class="card-information">Interior & Comfort</button>
-                            <button class="card-information">Safety</button>
-                            <button class="card-information">Wheels</button>
-                            <button class="card-information">Features</button>
-                        </div>
-                        <hr>
-                        <div class="details">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora itaque deleniti incidunt nobis dicta possimus nam, quia placeat asperiores, neque unde repudiandae fugiat, natus nulla officiis quibusdam voluptate provident eveniet.
-                        </div>
-                        <div class="process-btn">
-                            <button class="goback-btn">Go Back</button>
-                            <button class="purchase-btn">Purchase</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="card" onclick="toggleCard(this)">
-                <img src="./images/product_img/suzuki apv.jpg" alt="">
-                <div class="card-content">
-                    <div class="content">
-                        <h2 class="card-title">Product 1</h2>
-                        <p class="card-description">Click To Expand for more details</p>
-                    </div>
-                    <div class="card-info">
-                        <h3>Product Info</h3>
-                        <div class="card-info-btns">
-                            <button class="card-information">Engine & Performance</button>
-                            <button class="card-information">Dimension</button>
-                            <button class="card-information">Interior & Comfort</button>
-                            <button class="card-information">Safety</button>
-                            <button class="card-information">Wheels</button>
-                            <button class="card-information">Features</button>
-                        </div>
-                        <hr>
-                        <div class="details">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora itaque deleniti incidunt nobis dicta possimus nam, quia placeat asperiores, neque unde repudiandae fugiat, natus nulla officiis quibusdam voluptate provident eveniet.
-                        </div>
-                        <div class="process-btn">
-                            <button class="goback-btn">Go Back</button>
-                            <button class="purchase-btn">Purchase</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
     <section class="suzuki">
          <div class="title">
-            <h1>Suzuki</h1>
+            <img src="./images/header_img/suzuki.webp" alt="suzuki">
         </div>
         <div class="card-container">
             <div class="card" onclick="toggleCard(this)">
@@ -232,6 +142,107 @@ include("connect.php");
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="see-more">
+            <h1>see more about</h1>
+            <img src="./images/header_img/suzuki.webp" alt="suzuki" class="see-more-products">
+            <i class='bx bx-right-arrow-alt'></i>
+        </div>
+    </section>
+    <section class="honda">
+         <div class="title">
+            <img src="./images/header_img/honda.png" alt="honda" class="hondas">
+        </div>
+        <div class="card-container">
+            <div class="card" onclick="toggleCard(this)">
+                <img src="./images/product_img/Celerio.jpg" alt="">
+                <div class="card-content">
+                    <div class="content">
+                        <h2 class="card-title">Product 1</h2>
+                        <p class="card-description">Click To Expand for more details</p>
+                    </div>
+                    <div class="card-info">
+                        <h3>Product Info</h3>
+                        <div class="card-info-btns">
+                            <button class="card-information">Engine & Performance</button>
+                            <button class="card-information">Dimension</button>
+                            <button class="card-information">Interior & Comfort</button>
+                            <button class="card-information">Safety</button>
+                            <button class="card-information">Wheels</button>
+                            <button class="card-information">Features</button>
+                        </div>
+                        <hr>
+                        <div class="details">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora itaque deleniti incidunt nobis dicta possimus nam, quia placeat asperiores, neque unde repudiandae fugiat, natus nulla officiis quibusdam voluptate provident eveniet.
+                        </div>
+                        <div class="process-btn">
+                            <button class="goback-btn">Go Back</button>
+                            <button class="purchase-btn">Purchase</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card" onclick="toggleCard(this)">
+                <img src="./images/product_img/Celerio1.jpg" alt="">
+                <div class="card-content">
+                    <div class="content">
+                        <h2 class="card-title">Product 1</h2>
+                        <p class="card-description">Click To Expand for more details</p>
+                    </div>
+                    <div class="card-info">
+                        <h3>Product Info</h3>
+                        <div class="card-info-btns">
+                            <button class="card-information">Engine & Performance</button>
+                            <button class="card-information">Dimension</button>
+                            <button class="card-information">Interior & Comfort</button>
+                            <button class="card-information">Safety</button>
+                            <button class="card-information">Wheels</button>
+                            <button class="card-information">Features</button>
+                        </div>
+                        <hr>
+                        <div class="details">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora itaque deleniti incidunt nobis dicta possimus nam, quia placeat asperiores, neque unde repudiandae fugiat, natus nulla officiis quibusdam voluptate provident eveniet.
+                        </div>
+                        <div class="process-btn">
+                            <button class="goback-btn">Go Back</button>
+                            <button class="purchase-btn">Purchase</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card" onclick="toggleCard(this)">
+                <img src="./images/product_img/suzuki apv.jpg" alt="">
+                <div class="card-content">
+                    <div class="content">
+                        <h2 class="card-title">Product 1</h2>
+                        <p class="card-description">Click To Expand for more details</p>
+                    </div>
+                    <div class="card-info">
+                        <h3>Product Info</h3>
+                        <div class="card-info-btns">
+                            <button class="card-information">Engine & Performance</button>
+                            <button class="card-information">Dimension</button>
+                            <button class="card-information">Interior & Comfort</button>
+                            <button class="card-information">Safety</button>
+                            <button class="card-information">Wheels</button>
+                            <button class="card-information">Features</button>
+                        </div>
+                        <hr>
+                        <div class="details">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora itaque deleniti incidunt nobis dicta possimus nam, quia placeat asperiores, neque unde repudiandae fugiat, natus nulla officiis quibusdam voluptate provident eveniet.
+                        </div>
+                        <div class="process-btn">
+                            <button class="goback-btn">Go Back</button>
+                            <button class="purchase-btn">Purchase</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="see-more">
+            <h1>see more about</h1>
+            <img src="./images/header_img/honda.png" alt="suzuki" class="see-more-products-honda">
+            <i class='bx bx-right-arrow-alt'></i>
         </div>
     </section>
     <section class="promos">
