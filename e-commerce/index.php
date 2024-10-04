@@ -1,7 +1,7 @@
 <?php
 session_start();
 include("connect.php");
-
+$isLoggedIn = isset($_SESSION["username"]);
 ?>
 
 <!DOCTYPE html>
@@ -28,9 +28,13 @@ include("connect.php");
         </nav>
         <div class="actions">
             <input type="text" id="search" placeholder="Seach for cars...">
-            <button onclick="searchCars()">Search</button>
-            <button onclick="location.href='log_in.php'">Login</button>
-            <button onclick="location.href='registration_form.php'">Sign Up</button>
+            <button onclick="searchCars()" class="action-btn">Search</button>
+            <?php if(!$isLoggedIn):?>
+                <button onclick="location.href='log_in.php'" class="action-btn">Login</button>
+                <button onclick="location.href='registration_form.php'" class="action-btn">Sign Up</button>
+            <?php else: ?>
+                <button onclick="location.href='logout.php'" class="login-btn"><img src="./images/header_img/login_icon.png" alt="log_in"></button>
+            <?php endif ?>
         </div>
     </header>
     <section class="header">
@@ -81,7 +85,11 @@ include("connect.php");
                         </div>
                         <div class="process-btn">
                             <button class="goback-btn">Go Back</button>
-                            <button class="purchase-btn">Purchase</button>
+                            <?php if(!$isLoggedIn):?>
+                                <button class="purchase-btn" onclick="location.href='log_in.php'">Purchase</button>
+                            <?php else: ?>
+                                <button class="purchase-btn" onclick="location.href='user_profile.php'">Purchase</button>
+                            <?php endif ?>
                         </div>
                     </div>
                 </div>
