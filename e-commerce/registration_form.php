@@ -60,21 +60,21 @@
                     </div>
                 </div>
                 <div class="reg-input address">
-                    <label for="address">Address</label>
+                <label for="address">Address</label>
                     <input type="text" name="address" id="address" placeholder="Enter Street Address" required>
                     <div class="column">
                         <div class="select-box">
-                            <select name="a" id="a">
+                            <select name="country" id="a">
                                 <option hidden>Country</option>
                                 <option>Philippines</option>
                                 <option>Japan</option>
                             </select>
                         </div>
-                        <input type="text" placeholder="Enter Your City" required>
+                        <input type="text" name="city" placeholder="Enter Your City" required>
                     </div>
                     <div class="column">
-                        <input type="text" placeholder="Enter Your Region" required>
-                        <input type="text" placeholder="Enter Postal Code" required>
+                        <input type="text" name="region" placeholder="Enter Your Region" required>
+                        <input type="text" name="postal" placeholder="Enter Postal Code" required>
                     </div>
                 <div class="column">
                     <button type="submit" name="signUp"  class="reg-btn" >Confirm</button>

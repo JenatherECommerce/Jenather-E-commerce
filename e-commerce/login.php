@@ -6,9 +6,10 @@ error_reporting(E_ALL);
 
 include('connect.php'); 
 
+
 if (isset($_POST['signIn'])) {
     $username = trim($_POST['username']);
-    $password = ($_POST['password']);
+    $password = ($_POST['password']); 
 
     $sql = "SELECT password FROM customer_credentials WHERE username = '$username'";
     $result = $conn->query($sql);
