@@ -2,6 +2,11 @@
 session_start();
 include("connect.php");
 $isLoggedIn = isset($_SESSION["username"]);
+$sql_suzuki = "SELECT * FROM products LIMIT 3";
+$sql_honda = "SELECT * FROM products LIMIT 3";
+$suzuki_product = $conn->query($sql_suzuki);
+$honda_product = $conn->query($sql_honda);
+
 ?>
 
 <!DOCTYPE html>
@@ -58,15 +63,18 @@ $isLoggedIn = isset($_SESSION["username"]);
         </div>
     </section>
     <section class="suzuki">
-         <div class="title">
+        <div class="title">
             <img src="./images/header_img/suzuki.webp" alt="suzuki">
         </div>
         <div class="card-container">
+            <?php
+                while($row = mysqli_fetch_assoc($suzuki_product)){
+            ?>
             <div class="card" onclick="toggleCard(this)">
-                <img src="./images/product_img/Celerio.jpg" alt="">
+                <img src="" alt="">
                 <div class="card-content">
                     <div class="content">
-                        <h2 class="card-title">Product 1</h2>
+                        <h2 class="card-title"></h2>
                         <p class="card-description">Click To Expand for more details</p>
                     </div>
                     <div class="card-info">
@@ -94,62 +102,9 @@ $isLoggedIn = isset($_SESSION["username"]);
                     </div>
                 </div>
             </div>
-            <div class="card" onclick="toggleCard(this)">
-                <img src="./images/product_img/Celerio1.jpg" alt="">
-                <div class="card-content">
-                    <div class="content">
-                        <h2 class="card-title">Product 1</h2>
-                        <p class="card-description">Click To Expand for more details</p>
-                    </div>
-                    <div class="card-info">
-                        <h3>Product Info</h3>
-                        <div class="card-info-btns">
-                            <button class="card-information">Engine & Performance</button>
-                            <button class="card-information">Dimension</button>
-                            <button class="card-information">Interior & Comfort</button>
-                            <button class="card-information">Safety</button>
-                            <button class="card-information">Wheels</button>
-                            <button class="card-information">Features</button>
-                        </div>
-                        <hr>
-                        <div class="details">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora itaque deleniti incidunt nobis dicta possimus nam, quia placeat asperiores, neque unde repudiandae fugiat, natus nulla officiis quibusdam voluptate provident eveniet.
-                        </div>
-                        <div class="process-btn">
-                            <button class="goback-btn">Go Back</button>
-                            <button class="purchase-btn">Purchase</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="card" onclick="toggleCard(this)">
-                <img src="./images/product_img/suzuki apv.jpg" alt="">
-                <div class="card-content">
-                    <div class="content">
-                        <h2 class="card-title">Product 1</h2>
-                        <p class="card-description">Click To Expand for more details</p>
-                    </div>
-                    <div class="card-info">
-                        <h3>Product Info</h3>
-                        <div class="card-info-btns">
-                            <button class="card-information">Engine & Performance</button>
-                            <button class="card-information">Dimension</button>
-                            <button class="card-information">Interior & Comfort</button>
-                            <button class="card-information">Safety</button>
-                            <button class="card-information">Wheels</button>
-                            <button class="card-information">Features</button>
-                        </div>
-                        <hr>
-                        <div class="details">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora itaque deleniti incidunt nobis dicta possimus nam, quia placeat asperiores, neque unde repudiandae fugiat, natus nulla officiis quibusdam voluptate provident eveniet.
-                        </div>
-                        <div class="process-btn">
-                            <button class="goback-btn">Go Back</button>
-                            <button class="purchase-btn">Purchase</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <?php
+                } 
+            ?>
         </div>
         <div class="see-more">
             <h1>see more about</h1>
@@ -162,6 +117,9 @@ $isLoggedIn = isset($_SESSION["username"]);
             <img src="./images/header_img/honda.png" alt="honda" class="hondas">
         </div>
         <div class="card-container">
+            <?php
+                while($row = mysqli_fetch_assoc($honda_product)){
+            ?>
             <div class="card" onclick="toggleCard(this)">
                 <img src="./images/product_img/Celerio.jpg" alt="">
                 <div class="card-content">
@@ -190,62 +148,9 @@ $isLoggedIn = isset($_SESSION["username"]);
                     </div>
                 </div>
             </div>
-            <div class="card" onclick="toggleCard(this)">
-                <img src="./images/product_img/Celerio1.jpg" alt="">
-                <div class="card-content">
-                    <div class="content">
-                        <h2 class="card-title">Product 1</h2>
-                        <p class="card-description">Click To Expand for more details</p>
-                    </div>
-                    <div class="card-info">
-                        <h3>Product Info</h3>
-                        <div class="card-info-btns">
-                            <button class="card-information">Engine & Performance</button>
-                            <button class="card-information">Dimension</button>
-                            <button class="card-information">Interior & Comfort</button>
-                            <button class="card-information">Safety</button>
-                            <button class="card-information">Wheels</button>
-                            <button class="card-information">Features</button>
-                        </div>
-                        <hr>
-                        <div class="details">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora itaque deleniti incidunt nobis dicta possimus nam, quia placeat asperiores, neque unde repudiandae fugiat, natus nulla officiis quibusdam voluptate provident eveniet.
-                        </div>
-                        <div class="process-btn">
-                            <button class="goback-btn">Go Back</button>
-                            <button class="purchase-btn">Purchase</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="card" onclick="toggleCard(this)">
-                <img src="./images/product_img/suzuki apv.jpg" alt="">
-                <div class="card-content">
-                    <div class="content">
-                        <h2 class="card-title">Product 1</h2>
-                        <p class="card-description">Click To Expand for more details</p>
-                    </div>
-                    <div class="card-info">
-                        <h3>Product Info</h3>
-                        <div class="card-info-btns">
-                            <button class="card-information">Engine & Performance</button>
-                            <button class="card-information">Dimension</button>
-                            <button class="card-information">Interior & Comfort</button>
-                            <button class="card-information">Safety</button>
-                            <button class="card-information">Wheels</button>
-                            <button class="card-information">Features</button>
-                        </div>
-                        <hr>
-                        <div class="details">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora itaque deleniti incidunt nobis dicta possimus nam, quia placeat asperiores, neque unde repudiandae fugiat, natus nulla officiis quibusdam voluptate provident eveniet.
-                        </div>
-                        <div class="process-btn">
-                            <button class="goback-btn">Go Back</button>
-                            <button class="purchase-btn">Purchase</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <?php
+                } 
+            ?>
         </div>
         <div class="see-more">
             <h1>see more about</h1>
