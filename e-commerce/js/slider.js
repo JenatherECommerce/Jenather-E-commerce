@@ -9,10 +9,6 @@
 //             toggleBtnIcon.classList = isOpen ? 'fa-solid fa-xmark' : 'fa-solid fa-bars'
 //         }
 
-function toggleCard(card) {
-    card.classList.toggle('expanded')
-}
-
 let list = document.querySelector('.slider .list')
 let item = document.querySelectorAll('.slider .list .item')
 let dots = document.querySelectorAll('.slider .dots li')

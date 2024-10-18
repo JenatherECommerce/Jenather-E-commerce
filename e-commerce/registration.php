@@ -20,45 +20,46 @@ if (isset($_POST['signUp'])) {
     // Hash the password
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
+    // Insert address details into customer_address table first
+    $insertAddressQuery = 'INSERT INTO customer_address (postal, street, city, region, country)
+                           VALUES (?, ?, ?, ?, ?)';
 
-    $insertCredentialsQuery = 'INSERT INTO customer_credentials (username, firstname, lastname, birthdate, gender, email, password)
-                    VALUES (?, ?, ?, ?, ?, ?, ?)';
-
-    $stmt = $conn->prepare($insertCredentialsQuery);
-    if (!$stmt) {
-        die('Prepare failed: ' . htmlspecialchars($conn->error));
+    $stmtAddress = $conn->prepare($insertAddressQuery);
+    if (!$stmtAddress) {
+        die('Prepare failed (address insert): ' . htmlspecialchars($conn->error));
     }
 
-    $stmt->bind_param('sssssss', $username, $firstname, $lastname, $birthdate, $gender, $email, $hashed_password);
+    $stmtAddress->bind_param('sssss', $postal, $address, $city, $region, $country);
 
-    if ($stmt->execute()) {
-     
-        $customer_id = $conn->insert_id;
+    if ($stmtAddress->execute()) {
 
+        // Get the newly inserted customer_address_id
+        $customer_address_id = $conn->insert_id;
 
-        $insertAddressQuery = 'INSERT INTO customer_address (customer_id, postal, address, city, region, country)
-                        VALUES (?, ?, ?, ?, ?, ?)';
+        // Insert customer credentials, including the customer_address_id foreign key
+        $insertCredentialsQuery = 'INSERT INTO customer_credentials (username, firstname, lastname, birthdate, gender, email, password, customer_address_id)
+                                   VALUES (?, ?, ?, ?, ?, ?, ?, ?)';
 
-        $stmtAddress = $conn->prepare($insertAddressQuery);
-        if (!$stmtAddress) {
-            die('Prepare failed (address insert): ' . htmlspecialchars($conn->error));
+        $stmt = $conn->prepare($insertCredentialsQuery);
+        if (!$stmt) {
+            die('Prepare failed: ' . htmlspecialchars($conn->error));
         }
 
-        $stmtAddress->bind_param('isssss', $customer_id, $postal, $address, $city, $region, $country);
+        $stmt->bind_param('sssssssi', $username, $firstname, $lastname, $birthdate, $gender, $email, $hashed_password, $customer_address_id);
 
-        if ($stmtAddress->execute()) {
+        if ($stmt->execute()) {
             header("Location: log_in.php");
             exit();
         } else {
-            echo 'Error inserting address: ' . htmlspecialchars($stmtAddress->error);
+            echo 'Error inserting customer credentials: ' . htmlspecialchars($stmt->error);
         }
 
-        $stmtAddress->close();
+        $stmt->close();
     } else {
-        echo 'Error inserting customer credentials: ' . htmlspecialchars($stmt->error);
+        echo 'Error inserting address: ' . htmlspecialchars($stmtAddress->error);
     }
 
-    $stmt->close();
+    $stmtAddress->close();
     $conn->close();
 }
 ?>
