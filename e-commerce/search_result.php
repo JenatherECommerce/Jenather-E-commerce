@@ -69,14 +69,55 @@ if ($searchQuery) {
         <section class="search-results">
             <h1>Search Results for "<?php echo htmlspecialchars($searchQuery); ?>"</h1>
             <?php if ($searchResults && $searchResults->num_rows > 0): ?>
-                <div class="result-container">
+                <div class="card-container">
                     <?php while($row = $searchResults->fetch_assoc()): ?>
                         <div class="card" data-product-id="<?php echo $row['product_id'] ?>">
                             <img src="Products/<?php echo $row['product_img']?>" alt="">
                             <div class="card-content">
-                                <h2 class="card-title"><?php echo htmlspecialchars($row['product_name']); ?></h2>
-                                <h3 class="price"><b><?php echo "Price: " . number_format($row['product_price'], 2); ?></b></h3>
-                                <button onclick="location.href='product_details.php?id=<?php echo $row['product_id']; ?>'" class="action-btn">View Details</button>
+                                <div class="content">
+                                    <h2 class="card-title"><?php echo htmlspecialchars($row['product_name']); ?></h2>
+                                    <h3 class="price"><b><?php echo "Price: " . number_format($row['product_price'], 2); ?></b></h3>
+                                </div>
+                                <div class="card-info">
+                                    <h3>Product Info</h3>
+                                    <div class="card-info-btns">
+                                        <button class="card-information active" data-detail-type="engine_performances">Engine & Performance</button>
+                                        <button class="card-information" data-detail-type="dimensions">Dimension</button>
+                                        <button class="card-information" data-detail-type="interior_comfort">Interior & Comfort</button>
+                                        <button class="card-information" data-detail-type="safety">Safety</button>
+                                        <button class="card-information" data-detail-type="wheel">Wheels</button>
+                                        <button class="card-information" data-detail-type="features">Features</button>
+                                    </div>
+                                    <hr>
+                                    <div class="details" id="details-<?php echo $row['product_id'] ?>">
+                                        <div class="detail-section" data-type="engine_performances" style="display:block;">
+                                            <p><?php echo htmlspecialchars($row['engine_performances']); ?></p>
+                                        </div>
+                                        <div class="detail-section" data-type="dimensions" style="display:none;">
+                                            <p><?php echo htmlspecialchars($row['dimensions']); ?></p>
+                                        </div>
+                                        <div class="detail-section" data-type="interior_comfort" style="display:none;">
+                                            <p><?php echo htmlspecialchars($row['interior_comfort']); ?></p>
+                                        </div>
+                                        <div class="detail-section" data-type="safety" style="display:none;">
+                                            <p><?php echo htmlspecialchars($row['safety']); ?></p>
+                                        </div>
+                                        <div class="detail-section" data-type="wheel" style="display:none;">
+                                            <p><?php echo htmlspecialchars($row['wheel']); ?></p>
+                                        </div>
+                                        <div class="detail-section" data-type="features" style="display:none;">
+                                            <p><?php echo htmlspecialchars($row['features']); ?></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="process-btn">
+                                    <button class="close-btn">Close</button>
+                                    <?php if(!$isLoggedIn):?>
+                                        <button class="purchase-btn" onclick="location.href='log_in.php'">Purchase</button>
+                                    <?php else: ?>
+                                        <button class="purchase-btn" onclick="location.href='user_profile.php'">Purchase</button>
+                                    <?php endif ?>
+                                </div>
                             </div>
                         </div>
                     <?php endwhile; ?>
@@ -86,5 +127,6 @@ if ($searchQuery) {
             <?php endif; ?>
         </section>
     </main>
+    <script src="./js/card.js"></script>
 </body>
 </html>

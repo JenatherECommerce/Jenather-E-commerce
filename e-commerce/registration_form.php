@@ -1,4 +1,6 @@
-
+<?php
+session_start();
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -20,6 +22,10 @@
                     <div class="reg-input">
                         <label for="username">Username</label>
                         <input type="text" name="username" placeholder="Username" required>
+                        <?php if (isset($_SESSION['error_message'])): ?>
+                            <div class="error-message" style="color: red;"><?php echo $_SESSION['error_message']; ?></div>
+                            <?php unset($_SESSION['error-message']); ?>
+                        <?php endif; ?>
                     </div>
                     <div class="reg-input">
                         <label for="firstname">Firstname</label>

@@ -1,3 +1,16 @@
+<?php
+session_start();
+$successMessage = isset($_SESSION['success_message']) ? $_SESSION['success_message'] : '';
+
+$error = isset($_SESSION['error']) ? $_SESSION['error'] : '';
+$usernameError = isset($_SESSION['username_error']);
+$usernameClass = $error ? 'input-error' : '';
+$passwordClass = $error ? 'input-error' : '';
+
+unset($_SESSION['error']);
+unset($_SESSION['username_error']);
+unset($_SESSION['success_message']);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,6 +28,11 @@
         <div class="wrapper" id="signIn">
             <form action="login.php" method="post" autocomplete="off">
                 <h1>Login</h1>
+                <?php if($successMessage): ?>
+                    <script>
+                        alert('<?= $_successMessage ?>');
+                    </script>
+                <?php endif; ?>
                 <div class="input-box">
                     <input type="text" name="username" id="username" placeholder="Username" required>
                     <i class="bx bxs-user"></i>
@@ -23,6 +41,9 @@
                     <input type="password" name="password" id="password" placeholder="Password" required>
                     <i class="bx bxs-lock-alt"></i>
                 </div>
+                <?php if ($error): ?>
+                    <div class="error-message"><?= $error ?></div>
+                <?php endif; ?>
 
                 <div class="remember-forgot">
                     <label><input type="checkbox">Remember me</label>
