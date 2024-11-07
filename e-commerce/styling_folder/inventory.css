@@ -1,0 +1,112 @@
+.section-1{
+    margin-top: 20px;
+    width:  1200px;
+    height: 1010px;
+    background-color: #d9d9d9;
+}
+
+.button_container{
+    width: 1200px;
+    height: 50px;
+    display: flex;
+}
+
+.button_1{
+    
+    width: 150px;
+    height: 40px;
+    border-radius: 20px;
+}
+
+form{
+    width: 1200px;
+    height: 500px;
+}
+
+.section1{
+    width: 1200px;
+    height: 300px;
+    display: flex;
+
+}
+
+.img_holder{
+    width: 600px;
+    height: 270px;
+    text-align: center;
+
+}
+
+
+
+.img_holder img{
+    margin-bottom: 10px;
+    display: flex;
+    width: 290px;
+    height: 220px;
+    border-radius: 20px;
+    border: solid 10px;
+}
+
+.input_holder{
+    width: 600px;
+    text-align: center;
+    justify-content: center;
+    height: 270px;
+}
+
+.input_cars{
+    text-align: center;
+    border-radius: 20px;
+    margin-top: 10px;
+    border: solid 5px;
+    width: 500px;
+    height: 35px;
+}
+
+.section2{
+    width: 1200px;
+    display: flex;
+    
+}
+
+
+.textarea_container{
+    width: 600px;
+    height: 600px;
+    text-align: center;
+}
+
+.discription{
+    text-align: center;
+    width: 580px;
+    height: 200px;
+    border-radius: 20px;
+    font-size: 18px;
+}
+
+.submit_button{
+    margin-top: 20px;
+ 
+    width: 500px;
+    height: 30px;
+    border-radius: 20px;
+}
+
+.update_list{
+    width: 1200px;
+    height: 1010px;
+    background-color: azure;
+}
+
+.carbrand{
+    width: 550px;
+    height: 30px;
+    align-items: center;
+}
+
+
+
+.hidden{
+    display: none;
+}
