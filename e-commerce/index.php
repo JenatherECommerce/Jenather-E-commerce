@@ -65,12 +65,6 @@ $honda_product = $conn->query($sql_honda);
                     <span class="circle">
                         <span class="arrow"></span>
                     </span>
-                    <span class="text">Customize Your Own Car</span>
-                </button>
-                <button class="main-btn">
-                    <span class="circle">
-                        <span class="arrow"></span>
-                    </span>
                     <span class="text">List of Cars</span>
                 </button>
             </div>

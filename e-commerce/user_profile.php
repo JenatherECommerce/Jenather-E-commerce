@@ -7,7 +7,7 @@
 </head>
 <body>
     <div class="side-bar">
-        <H1>Under Constraction</H1>
+        <H1>Under Construction</H1>
     </div>
 </body>
 </html>

@@ -84,7 +84,7 @@ session_start();
                     </div>
                 <div class="column">
                     <button type="submit" name="signUp"  class="reg-btn" >Confirm</button>
-                    <button type="reset" onclick="location.href='log_in.php'" class="reg-btn">Cancel</button>
+                    <button type="reset" onclick="location.href='index.php'" class="reg-btn">Cancel</button>
                 </div>
                 </div>
                 

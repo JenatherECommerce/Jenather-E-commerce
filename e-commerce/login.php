@@ -52,7 +52,9 @@ if (isset($_POST['signIn'])) {
                 exit();
             }
         } else {
-            echo 'User not found';
+            $_SESSION['error'] = 'No Account , Create One';
+            $_SESSION['username_error'] = $username;
+            header("Location: log_in.php");
         }
     }
     $stmt->close();
