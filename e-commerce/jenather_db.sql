@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 17, 2024 at 03:00 PM
+-- Generation Time: Nov 17, 2024 at 05:27 AM
 -- Server version: 10.4.32-MariaDB
--- PHP Version: 8.0.30
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -33,6 +33,13 @@ CREATE TABLE `admin` (
   `password` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `admin`
+--
+
+INSERT INTO `admin` (`admin_id`, `username`, `password`) VALUES
+(1, 'Nath', '$2y$10$U4qSkKCDjWgT0KPnUkdl9ONa7h2iRkX3M.i5zlfKxBLynGVUE4UHC');
+
 -- --------------------------------------------------------
 
 --
@@ -49,6 +56,13 @@ CREATE TABLE `customer_address` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
+-- Dumping data for table `customer_address`
+--
+
+INSERT INTO `customer_address` (`customer_address_id`, `postal`, `street`, `city`, `region`, `country`) VALUES
+(2, 0, 'NN', 'NN', 'NN', 'Philippines'),
+(3, 3014, 'Cacarong Matnda', 'PANDI', '3', 'Philippines');
+
 -- --------------------------------------------------------
 
 --
@@ -68,6 +82,29 @@ CREATE TABLE `customer_credentials` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
+-- Dumping data for table `customer_credentials`
+--
+
+INSERT INTO `customer_credentials` (`customer_id`, `username`, `firstname`, `lastname`, `birthdate`, `gender`, `email`, `password`, `customer_address_id`) VALUES
+(2, 'Jenather12345', 'nath', 'niel', '1111-11-11', 'Male', 'nathanielfaburada14@gmail.com', '$2y$10$X7j6/Eid.JMk15h.kFdx2.cPnzRxXZlCzxW6PggmLFJ5djPG4AjOO', 2),
+(3, 'jenapaulthergen', 'jet', 'padilla', '2005-01-24', 'Female', 'jetpadilla07@gmail.com', '$2y$10$GLgCOPhVSj/62MqAo7iUH.Bn7TEzWA9hhKgmRPP.hRAnIlRvqBoNu', 3);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `customer_purchase`
+--
+
+CREATE TABLE `customer_purchase` (
+  `purchase_id` int(11) NOT NULL,
+  `customer_id` int(11) NOT NULL,
+  `car_purchase_name` text NOT NULL,
+  `car_price` int(11) NOT NULL,
+  `purchase_date` datetime NOT NULL DEFAULT current_timestamp()
+) ;
+
+-- --------------------------------------------------------
+
 --
 -- Table structure for table `products`
 --
@@ -161,6 +198,13 @@ ALTER TABLE `customer_credentials`
   ADD KEY `customer_address` (`customer_address_id`);
 
 --
+-- Indexes for table `customer_purchase`
+--
+ALTER TABLE `customer_purchase`
+  ADD PRIMARY KEY (`purchase_id`),
+  ADD KEY `fk_customer` (`customer_id`);
+
+--
 -- Indexes for table `products`
 --
 ALTER TABLE `products`
@@ -181,31 +225,37 @@ ALTER TABLE `products_description`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `admin_id` int(5) NOT NULL AUTO_INCREMENT;
+  MODIFY `admin_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `customer_address`
 --
 ALTER TABLE `customer_address`
-  MODIFY `customer_address_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `customer_address_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `customer_credentials`
 --
 ALTER TABLE `customer_credentials`
-  MODIFY `customer_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `customer_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `customer_purchase`
+--
+ALTER TABLE `customer_purchase`
+  MODIFY `purchase_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `products_description`
 --
 ALTER TABLE `products_description`
-  MODIFY `products_description_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `products_description_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- Constraints for dumped tables
@@ -216,6 +266,12 @@ ALTER TABLE `products_description`
 --
 ALTER TABLE `customer_credentials`
   ADD CONSTRAINT `customer_address` FOREIGN KEY (`customer_address_id`) REFERENCES `customer_address` (`customer_address_id`);
+
+--
+-- Constraints for table `customer_purchase`
+--
+ALTER TABLE `customer_purchase`
+  ADD CONSTRAINT `fk_customer` FOREIGN KEY (`customer_id`) REFERENCES `customer_credentials` (`customer_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `products`
