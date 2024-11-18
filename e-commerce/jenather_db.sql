@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 17, 2024 at 05:27 AM
+-- Generation Time: Nov 18, 2024 at 03:17 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -97,11 +97,10 @@ INSERT INTO `customer_credentials` (`customer_id`, `username`, `firstname`, `las
 
 CREATE TABLE `customer_purchase` (
   `purchase_id` int(11) NOT NULL,
+  `product_id` int(11) NOT NULL,
   `customer_id` int(11) NOT NULL,
-  `car_purchase_name` text NOT NULL,
-  `car_price` int(11) NOT NULL,
   `purchase_date` datetime NOT NULL DEFAULT current_timestamp()
-) ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -202,7 +201,8 @@ ALTER TABLE `customer_credentials`
 --
 ALTER TABLE `customer_purchase`
   ADD PRIMARY KEY (`purchase_id`),
-  ADD KEY `fk_customer` (`customer_id`);
+  ADD KEY `fk_customer` (`customer_id`),
+  ADD KEY `product_id` (`product_id`);
 
 --
 -- Indexes for table `products`
@@ -271,6 +271,7 @@ ALTER TABLE `customer_credentials`
 -- Constraints for table `customer_purchase`
 --
 ALTER TABLE `customer_purchase`
+  ADD CONSTRAINT `customer_purchase_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `products` (`product_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `fk_customer` FOREIGN KEY (`customer_id`) REFERENCES `customer_credentials` (`customer_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
