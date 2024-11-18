@@ -1,0 +1,193 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #e6e6e6;
+    color: #000;
+}
+
+.reg-form {
+    min-height: 50vh;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 20px;
+}
+
+.reg-icon {
+    list-style: none;
+    margin: 0;
+    padding: 15px;
+    display: flex;
+}
+
+.error {
+    border: 2px solid red;
+}
+
+.reg-input .error-message{
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.reg-icon h2{
+    padding-top: 13px;
+    padding-left: 15px;
+}
+
+.reg-contents {
+    position: relative;
+    max-width:1000;
+    width: 100%;
+    background: white;
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.212);
+}
+
+.reg-contents h1 {
+    font-size: 1.5rem;
+    color: #000;
+    font-weight: 500;
+    text-align: center;
+}
+
+.reg-contents .form {
+    margin-top: 30px;
+
+}
+
+.form .reg-input {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.reg-input label {
+    color: #000;
+}
+
+.form :where(.reg-input input, .select-box) {
+    position: relative;
+    height: 50px;
+    width: 100%;
+    outline: none;
+    font-size: 1rem;
+    color: #474747;
+    margin-top: 8px;
+    border: 1px solid #363636;
+    border-radius: 6px;
+    padding: 0 15px;
+}
+
+.reg-input input:focus {
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+}
+
+.form .column {
+    display: flex;
+    column-gap: 15px;
+}
+
+.form .gender-box{
+    margin-top: 20px;
+}
+
+.gender-box h3 {
+    color: #000;
+    font-size: 1rem;
+    font-weight: 400;
+    margin-bottom: 8px;
+}
+
+.form :where(.gender-option, .gender) {
+    display: flex;
+    color: #000;
+    align-items: center;
+    column-gap: 50px;
+}
+
+.form .gender {
+    column-gap: 5px;
+}
+
+.gender input{
+    accent-color: #4920dd;
+}
+
+.form :where(.gender input, .gender label) {
+    cursor: pointer;
+}
+
+.gender label{
+    color: #000;
+}
+
+.address :where(input, .select-box){
+    margin-top: 15px;
+
+}
+
+.select-box select {
+    height: 100%;
+    width: 100%;
+    outline: none;
+    border: none;
+    color: #000;
+    font-size: 1rem;
+}
+
+.form button {
+    height: 55px;
+    width: 50%;
+    color: #000;
+    font-size: 1rem;
+    border: none;
+    margin-top: 30px;
+    cursor: pointer;
+    border-radius: 6px;
+    font-weight: 400;
+    transition: all 0.2s ease;
+    background-color: #5ea590;
+    box-shadow: 0 5px 4px rgba(0, 0, 0, 0.349);
+}
+
+.form button:hover {
+    background-color: #f1efed;
+}
+
+
+@media (max-width: 768px) {
+    header {
+        flex-wrap: wrap;
+    }
+
+    .navbar ul {
+        flex-wrap: wrap;
+
+    }
+
+    .navbar ul li {
+        margin: 5px 0;
+    }
+    
+    .actions {
+        flex-wrap: wrap;
+    }
+
+    .actions input[type='text'] {
+        margin-bottom: 10px;
+    }
+
+    .actions button {
+        margin-bottom: 10px;
+    }
+
+    .form .column {
+        flex-wrap: wrap;
+    }
+}
