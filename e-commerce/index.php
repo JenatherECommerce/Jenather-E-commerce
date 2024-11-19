@@ -36,9 +36,9 @@ $honda_product = $conn->query($sql_honda);
         <nav class="nav-bar">
             <ul>
                 <li><a href="index.php">Home</a></li>
-                <li><a href="#">Promos</a></li>
-                <li><a href="#">Financing</a></li>
-                <li><a href="#">Contact Us</a></li>
+                <li><a id="promos">Promos</a></li>
+                <li><a id="loans">Loan</a></li>
+                <li><a id="contactus">Contact Us</a></li>
             </ul>
         </nav>
         <div class="actions">
@@ -50,26 +50,38 @@ $honda_product = $conn->query($sql_honda);
                 <button onclick="location.href='log_in.php'" class="action-btn">Login</button>
                 <button onclick="location.href='registration_form.php'" class="action-btn">Sign Up</button>
             <?php else: ?>
-                <button onclick="location.href='logout.php'" class="login-btn"><img src="./images/header_img/login_icon.png" alt="log_in"></button>
+                <button onclick="location.href='user_profile.php'" class="login-btn"><img src="./images/header_img/login_icon.png" alt="log_in"></button>
             <?php endif ?>
         </div>
     </header>
     <main>
-        <section class="header">
+        <section class="header" id="header-section">
             <div class="container">
                 <img src="./images/header_img/icon transparent.png" alt="Jenather Logo" height="400">
                 <h1>Ready To Have Your First Car?</h1>
             </div>
             <div class="buttons">
-                <button class="main-btn">
+                <button class="main-btn" id="suzuki">
+                    <span class="circle">
+                        <span class="arrow"></span>
+                    </span>
+                    <span class="text">Suzuki</span>
+                </button>
+                <button class="main-btn" id="listofcars">
                     <span class="circle">
                         <span class="arrow"></span>
                     </span>
                     <span class="text">List of Cars</span>
                 </button>
+                <button class="main-btn" id="honda">
+                    <span class="circle">
+                        <span class="arrow"></span>
+                    </span>
+                    <span class="text">Honda</span>
+                </button>
             </div>
         </section>
-        <section class="suzuki">
+        <section class="suzuki" id="suzuki-section">
             <div class="title">
                 <img src="./images/header_img/suzuki.webp" alt="suzuki">
             </div>
@@ -131,13 +143,13 @@ $honda_product = $conn->query($sql_honda);
                     } 
                 ?>
             </div>
-            <div class="see-more">
+            <div class="see-more" onclick="location.href='suzuki.php'">
                 <h1>see more about</h1>
                 <img src="./images/header_img/suzuki.webp" alt="suzuki" class="see-more-products">
                 <i class='bx bx-right-arrow-alt'></i>
             </div>
         </section>
-        <section class="honda">
+        <section class="honda" id="honda-section">
             <div class="title">
                 <img src="./images/header_img/honda.png" alt="honda" class="hondas">
             </div>
@@ -199,14 +211,14 @@ $honda_product = $conn->query($sql_honda);
                     } 
                 ?>
             </div>
-            <div class="see-more">
+            <div class="see-more" onclick="location.href='honda.php'">
                 <h1>see more about</h1>
                 <img src="./images/header_img/honda.png" alt="suzuki" class="see-more-products-honda">
                 <i class='bx bx-right-arrow-alt'></i>
             </div>
         </section>
     </main>
-    <section class="promos">
+    <section class="promos" id="promos-section">
         <div class="Promos">
             <h1>Promos</h1>
         </div>
@@ -237,11 +249,93 @@ $honda_product = $conn->query($sql_honda);
             </ul>
         </div>
     </section>
+    <div id="loaning">
+        <img id="autoloan" src="./images/finances_img/AutoLoan.webp" alt="">
+        <h1 id="autoloanh1">AUTO LOAN</h1>
+        <h2 id="financing">Click Financing Partner for Auto Loan</h2>
+    </div>
+
+    <section id="loan" id="loaning-section">
+        <div class="loaningsec" id="bpi">
+            <h3 id="bpih3">BANK OF THE PHILIPPINE ISLANDS ( BPI )</h3>
+            <p id="bpip">We are always at your disposal: thanks to our national network, there is always <br> a Suzuki partner close to you</p>
+            <button class="readmore">Read More</button>
+            <span class="readmore-arrow">→</span>
+            <img style="position: relative; right: 350px; bottom: 95px; width: 450px; height: 250px; object-fit: cover; z-index: 1;" src="images/finances_img/bpi.png" alt="">
+        </div>
+        <div class="loaningsec" id="boc">
+            <h3 id="boch3">BANK OF COMMERCE ( BOC )</h3>
+            <p id="bocp">Suzuki Financial Services financing program, through partnership with Impuls <br> Leasing.</p>
+            <button class="readmore2">Read More</button>
+            <span class="readmore-arrow2">→</span>
+            <img style="bottom: 95px; width: 450px; height: 250px; object-fit: cover; z-index: 1; position: relative; left: 410px;" src="images/finances_img/bankofcommerce.png" alt="">
+        </div>
+        <div class="loaningsec" id="bdo" >
+            <h3 id="bdoh3">BANKO DE ORO ( BDO )</h3>
+            <p id="bdop">Suzuki Roadside Assistance - 3 years of worry-free travel!</p>
+            <button class="readmore">Read More</button>
+            <span class="readmore-arrow">→</span>
+            <img style="position: relative; bottom: 75px; right: 400px; width: 450px; height: 250px; object-fit: cover; z-index: 1;" src="images/finances_img/bdo.png" alt="">
+        </div>
+        <div class="loaningsec" id="cbs">
+            <h3 id="cbsh3">CHINA BANK SAVINGS ( CBS )</h3>
+            <p id="cbsp">We make sure you don't worry!</p>
+            <button class="readmore2">Read More</button>
+            <span class="readmore-arrow2">→</span>
+            <img style="width: 450px; height: 250px; bottom: 75px; object-fit: cover; z-index: 1; position: relative; left: 410px;" src="images/finances_img/cbs.png" alt="">
+        </div>
+        <div class="loaningsec" id="ewbc">
+            <h3 id="ewbch3">EAST WEST BANKING CORPORATION</h3>
+            <p id="ewbcp">We make sure you don't worry!</p>
+            <button class="readmore">Read More</button>
+            <span class="readmore-arrow">→</span>
+            <img style="position: relative; right: 400px; bottom: 75px; width: 450px; height: 250px; object-fit: cover; z-index: 1;" src="images/finances_img/eastwest.png" alt="">
+        </div>
+        <div class="loaningsec" id="mp">
+            <h3 id="mph3">MAYBANK PHILIPPINES</h3>
+            <p id="mpp">We make sure you don't worry!</p>
+            <button class="readmore2">Read More</button>
+            <span class="readmore-arrow2">→</span>
+            <img style="width: 450px; height: 250px; object-fit: cover; z-index: 1; position: relative; bottom: 75px; left: 410px;" src="images/finances_img/maybank.png" alt="">
+        </div>
+        <div class="loaningsec" id="psb">
+            <h3 id="psbh3">PHILIPPINE SAVINGS BANK</h3>
+            <p id="psbp">We make sure you don't worry!</p>
+            <button class="readmore">Read More</button>
+            <span class="readmore-arrow">→</span>
+            <img style="position: relative; bottom: 75px; right: 400px; width: 450px; height: 250px; object-fit: cover; z-index: 1;" src="images/finances_img/psbank.png" alt="">
+        </div>
+        <div class="loaningsec" id="rcbc">
+            <h3 id="rcbch3">THE RIZAL COMMERCIAL BANKING CORPORATION</h3>
+            <p id="rcbcp">We make sure you don't worry!</p>
+            <button class="readmore2">Read More</button>
+            <span class="readmore-arrow2">→</span>
+            <img style="width: 450px; height: 250px; bottom: 75px; object-fit: cover; z-index: 1; position: relative; left: 410px;" src="images/finances_img/RCBC.png" alt="">
+        </div>
+        <div class="loaningsec" id="rb">
+            <h3 id="rbh3">ROBINSONS BANK</h3>
+            <p id="rbp">We make sure you don't worry!</p>
+            <button class="readmore">Read More</button>
+            <span class="readmore-arrow">→</span>
+            <img style="position: relative; right: 330px; bottom: 78px; width: 460px; height: 250px; object-fit: cover; z-index: 1;" src="images/finances_img/robinsonsbank.png" alt="">
+        </div>
+    </section>
+
+    <footer id="contact-section">
+        <img style="object-fit: cover; width: 100%; position: relative; bottom: -3600px; margin: 0 auto; max-width: 1300px;" src="images/header_img/car interior design.jpeg" alt="">
+        <h1 style="position: relative; top: 2780px; right: 470px; font-size: 50px; color: white;">CONTACT US</h1>
+        <p class="gmail">faboradanathaniel@gmail.com | 0966-671-2004 | Cacarong Matanda Pandi, Bulacan</p>
+        <br>
+        <p class="gmail">dietherpano95@gmail.com |  0945-672-7395 | Cacarong Bata Pandi,Bulacan</p>
+        <br>
+        <p class="gmail">jetpadilla07@gmail.com | 0915-548-0755 | Cacarong Bata Pandi,Bulacan</p>
+    </footer>
+    <button id="goup"><span class="arrow-up">^</span> </button>
     <script src="./js/slider.js">
     </script>
     <script src="./js/card.js"></script>
     <script src="./js/fetch_product.js"></script>
-
+    <script src="./js/scroll.js"></script>
 
 </body>
 </html>

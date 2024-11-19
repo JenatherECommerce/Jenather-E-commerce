@@ -1,3 +1,10 @@
+<?php
+session_start();
+include("connect.php"); // Make sure you have your database connection
+
+$isLoggedIn = isset($_SESSION["username"]);
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,9 +16,9 @@
 <body>
   <div class="container">
     <aside class="sidebar">
-        <img src="./images/profile_svg/home-icon-silhouette-svgrepo-com.svg" alt="home icon" class="home-icon">
-        <img src="./images/profile_svg/car-svgrepo-com.svg" alt="cart icon" class="cart-icon">
-        <img src="./images/profile_svg/log-out-svgrepo-com.svg" alt="logout icon" class="logout-icon">
+        <a href="user_profile.php"><img src="./images/profile_svg/home-icon-silhouette-svgrepo-com.svg" alt="home icon" class="home-icon"></a>
+        <a href="purchase.php"><img src="./images/profile_svg/car-svgrepo-com.svg" alt="cart icon" class="cart-icon"></a>
+        <a onclick="location.href='logout.php'"><img src="./images/profile_svg/log-out-svgrepo-com.svg" alt="logout icon" class="logout-icon"></a>
     </aside>
     <main class="profile">
       <div class="profile-header">
