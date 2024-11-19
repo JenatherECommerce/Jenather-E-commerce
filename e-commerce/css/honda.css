@@ -281,18 +281,17 @@ header {
 }
 
 .card-description{
-    /* display: none; */
+    display: none;
     margin: 10px 0;
     font-size: 0.9em;
     color: #555;
 }
 
-/* .card.expanded .card-description{
+.card.expanded .card-description{
     display: block;
-} */
+}
 
-.card.expanded{
-    width: 1100px;
+.card.expanded{  
     height: auto;
     cursor: default;
 }

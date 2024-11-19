@@ -31,7 +31,7 @@ header {
     display: flex;
     padding-top: 100px;
     flex-direction: column;
-    max-width: 1300px;
+    max-width: 1600px;
     margin: 0 auto;
 }
 
@@ -187,7 +187,7 @@ header {
 }
 
 .suzuki{
-    max-width: 1300px;
+    max-width: 1600px;
     margin: 0 auto;
     font-family: Arial, sans-serif;
     color: black;
@@ -198,7 +198,7 @@ header {
 }
 
 .honda{
-    max-width: 1300px;
+    max-width: 1600px;
     margin: 0 auto;
     font-family: Arial, sans-serif;
     color: black;
@@ -281,18 +281,18 @@ header {
 }
 
 .card-description{
-    /* display: none; */
+    display: none;
     margin: 10px 0;
     font-size: 0.9em;
     color: #555;
 }
 
-/* .card.expanded .card-description{
+.card.expanded .card-description{
     display: block;
-} */
+}
 
 .card.expanded{
-    width: 1100px;
+    width: 650px;
     height: auto;
     cursor: default;
 }

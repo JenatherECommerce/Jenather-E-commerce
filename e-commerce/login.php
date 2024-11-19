@@ -1,5 +1,8 @@
 <?php
 session_start();
+echo '<pre>';
+print_r($_SESSION);
+echo '</pre>';
 
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
@@ -12,15 +15,16 @@ if (isset($_POST['signIn'])) {
     $username = trim($_POST['username']);
     $password = ($_POST['password']); 
 
-    $sql = "SELECT password FROM customer_credentials WHERE username = '$username'";
+    $sql = "SELECT customer_id, password FROM customer_credentials WHERE username = '$username'";
     $result = $conn->query($sql);
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
         $hashed_password = $row['password'];
+        $customer_id = $row['customer_id'];
 
         if (password_verify($password, $hashed_password)) {
-            session_start();
             $_SESSION["username"] = $username;
+            $_SESSION["customer_id"] = $customer_id;
             header("Location: index.php");
             exit();
         } else {
