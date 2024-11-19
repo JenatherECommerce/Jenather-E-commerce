@@ -291,7 +291,8 @@ header {
     display: block;
 }
 
-.card.expanded{  
+.card.expanded{
+    width: 650px;
     height: auto;
     cursor: default;
 }

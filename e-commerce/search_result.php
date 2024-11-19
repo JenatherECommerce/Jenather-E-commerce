@@ -68,15 +68,21 @@ if ($searchQuery) {
     <main>
         <section class="search-results">
             <h1>Search Results for "<?php echo htmlspecialchars($searchQuery); ?>"</h1>
-            <?php if ($searchResults && $searchResults->num_rows > 0): ?>
+            <?php if ($searchResults && $searchResults->num_rows > 0):?>
                 <div class="card-container">
                     <?php while($row = $searchResults->fetch_assoc()): ?>
+                        <?php $isOutOfStock = $row['product_quantity'] <= 0; ?>
                         <div class="card" data-product-id="<?php echo $row['product_id'] ?>">
                             <img src="Products/<?php echo $row['product_img']?>" alt="">
                             <div class="card-content">
                                 <div class="content">
-                                    <h2 class="card-title"><?php echo htmlspecialchars($row['product_name']); ?></h2>
-                                    <h3 class="price"><b><?php echo "Price: " . number_format($row['product_price'], 2); ?></b></h3>
+                                    <h2 class="card-title"><?php echo $row['product_name'] ?></h2>
+                                    <h3 class="price"><b><?php echo "Price: " . number_format($row['product_price'],2) ?></b></h3>
+                                    <?php if ($isOutOfStock): ?>
+                                        <p class="out-of-stock" style="color: red; font-weight: bold;">Out of Stock</p>
+                                    <?php else: ?>
+                                        <p class="card-description">Click To Expand for more details</p>
+                                    <?php endif; ?>
                                 </div>
                                 <div class="card-info">
                                     <h3>Product Info</h3>
@@ -112,11 +118,18 @@ if ($searchQuery) {
                                 </div>
                                 <div class="process-btn">
                                     <button class="close-btn">Close</button>
-                                    <?php if(!$isLoggedIn):?>
-                                        <button class="purchase-btn" onclick="location.href='log_in.php'">Purchase</button>
+                                    <?php if ($isOutOfStock): ?>
+                                        <button class="purchase-btn" disabled style="background-color: grey;">Unavailable</button>
                                     <?php else: ?>
-                                        <button class="purchase-btn" onclick="location.href='user_profile.php'">Purchase</button>
-                                    <?php endif ?>
+                                        <?php if(!$isLoggedIn):?>
+                                            <button class="purchase-btn" onclick="location.href='log_in.php'">Purchase</button>
+                                        <?php else: ?>
+                                            <form action="purchase.php" method="POST">
+                                                <input type="hidden" name="product_id" value="<?php echo $row['product_id']; ?>">
+                                                <button class="purchase-btn" type="submit">Purchase</button>
+                                            </form>
+                                        <?php endif; ?>
+                                    <?php endif; ?>
                                 </div>
                             </div>
                         </div>
