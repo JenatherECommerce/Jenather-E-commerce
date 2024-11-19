@@ -60,7 +60,7 @@ if ($searchQuery) {
                 <button onclick="location.href='log_in.php'" class="action-btn">Login</button>
                 <button onclick="location.href='registration_form.php'" class="action-btn">Sign Up</button>
             <?php else: ?>
-                <button onclick="location.href='logout.php'" class="login-btn"><img src="./images/header_img/login_icon.png" alt="log_in"></button>
+                <button onclick="location.href='user_profile.php'" class="login-btn"><img src="./images/header_img/login_icon.png" alt="log_in"></button>
             <?php endif ?>
         </div>
     </header>
