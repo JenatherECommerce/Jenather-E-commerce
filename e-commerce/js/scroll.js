@@ -13,3 +13,19 @@ document.getElementById('goup').addEventListener('click', () => {
 document.getElementById('promos').addEventListener('click', () => {
     document.getElementById('promos-section').scrollIntoView({ behavior: "smooth"})
 })
+
+document.addEventListener("DOMContentLoaded", () => {
+        const popup = document.getElementById("popup");
+        const closePopup = document.getElementById("closePopup");
+
+        if (popup) {
+            closePopup.addEventListener("click", () => {
+                popup.style.display = "none";
+            });
+
+            // Auto-close the popup after 5 seconds
+            setTimeout(() => {
+                popup.style.display = "none";
+            }, 5000);
+        }
+    });

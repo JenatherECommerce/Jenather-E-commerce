@@ -1,7 +1,6 @@
 <?php
 session_start();
 include("connect.php");
-
 $isLoggedIn = isset($_SESSION["username"]);
 // Default queries for Suzuki and Honda (only when there's no search)
 $sql_suzuki = "SELECT p.*, pd.engine_performances, pd.dimensions, pd.interior_comfort, pd.safety, pd.wheel, pd.features 
@@ -17,6 +16,12 @@ $sql_honda = "SELECT p.*, pd.engine_performances, pd.dimensions, pd.interior_com
 $suzuki_product = $conn->query($sql_suzuki);
 $honda_product = $conn->query($sql_honda);
 
+$purchaseMessage = isset($_SESSION['purchase_message']) ? $_SESSION['purchase_message'] : null;
+
+// Clear the session message to avoid showing it again on page refresh
+if (isset($_SESSION['purchase_message'])) {
+    unset($_SESSION['purchase_message']);
+}
 ?>
 
 <!DOCTYPE html>
@@ -88,6 +93,7 @@ $honda_product = $conn->query($sql_honda);
             <div class="card-container">
                 <?php
                     while($row = mysqli_fetch_assoc($suzuki_product)){
+                        $isOutOfStock = $row['product_quantity'] <= 0; // Check if product is out of stock
                 ?>
                 <div class="card" data-product-id="<?php echo $row['product_id'] ?>">
                     <img src="Products/<?php echo $row['product_img']?>" alt="">
@@ -95,7 +101,11 @@ $honda_product = $conn->query($sql_honda);
                         <div class="content">
                             <h2 class="card-title"><?php echo $row['product_name'] ?></h2>
                             <h3 class="price"><b><?php echo "Price: " . number_format($row['product_price'],2) ?></b></h3>
-                            <p class="card-description">Click To Expand for more details</p>
+                            <?php if ($isOutOfStock): ?>
+                                <p class="out-of-stock" style="color: red; font-weight: bold;">Out of Stock</p>
+                            <?php else: ?>
+                                <p class="card-description">Click To Expand for more details</p>
+                            <?php endif; ?>
                         </div>
                         <div class="card-info">
                             <h3>Product Info</h3>
@@ -130,12 +140,19 @@ $honda_product = $conn->query($sql_honda);
                             </div>
                         </div>
                         <div class="process-btn">
-                                <button class="close-btn">Close</button>
+                            <button class="close-btn">Close</button>
+                            <?php if ($isOutOfStock): ?>
+                                <button class="purchase-btn" disabled style="background-color: grey;">Unavailable</button>
+                            <?php else: ?>
                                 <?php if(!$isLoggedIn):?>
                                     <button class="purchase-btn" onclick="location.href='log_in.php'">Purchase</button>
                                 <?php else: ?>
-                                    <button class="purchase-btn" onclick="location.href='user_profile.php'">Purchase</button>
-                                <?php endif ?>
+                                    <form action="purchase.php" method="POST">
+                                        <input type="hidden" name="product_id" value="<?php echo $row['product_id']; ?>">
+                                        <button class="purchase-btn" type="submit">Purchase</button>
+                                    </form>
+                                <?php endif; ?>
+                            <?php endif; ?>
                         </div>
                     </div>
                 </div>
@@ -143,6 +160,14 @@ $honda_product = $conn->query($sql_honda);
                     } 
                 ?>
             </div>
+            <?php if ($purchaseMessage): ?>
+                <div id="popup" class="popup">
+                    <div class="popup-content">
+                        <p><?php echo htmlspecialchars($purchaseMessage); ?></p>
+                        <button id="closePopup" class="popup-close-btn">OK</button>
+                    </div>
+                </div>
+            <?php endif; ?>
             <div class="see-more" onclick="location.href='suzuki.php'">
                 <h1>see more about</h1>
                 <img src="./images/header_img/suzuki.webp" alt="suzuki" class="see-more-products">
@@ -156,14 +181,19 @@ $honda_product = $conn->query($sql_honda);
             <div class="card-container">
                 <?php
                     while($row = mysqli_fetch_assoc($honda_product)){
+                        $isOutOfStock = $row['product_quantity'] <= 0; // Check if product is out of stock
                 ?>
                 <div class="card" data-product-id="<?php echo $row['product_id'] ?>">
-                    <img src="Products/<?php echo $row['product_img'] ?>" alt="">
+                    <img src="Products/<?php echo $row['product_img']?>" alt="">
                     <div class="card-content">
                         <div class="content">
                             <h2 class="card-title"><?php echo $row['product_name'] ?></h2>
                             <h3 class="price"><b><?php echo "Price: " . number_format($row['product_price'],2) ?></b></h3>
-                            <p class="card-description">Click To Expand for more details</p>
+                            <?php if ($isOutOfStock): ?>
+                                <p class="out-of-stock" style="color: red; font-weight: bold;">Out of Stock</p>
+                            <?php else: ?>
+                                <p class="card-description">Click To Expand for more details</p>
+                            <?php endif; ?>
                         </div>
                         <div class="card-info">
                             <h3>Product Info</h3>
@@ -198,12 +228,19 @@ $honda_product = $conn->query($sql_honda);
                             </div>
                         </div>
                         <div class="process-btn">
-                                <button class="close-btn">Close</button>
+                            <button class="close-btn">Close</button>
+                            <?php if ($isOutOfStock): ?>
+                                <button class="purchase-btn" disabled style="background-color: grey;">Unavailable</button>
+                            <?php else: ?>
                                 <?php if(!$isLoggedIn):?>
                                     <button class="purchase-btn" onclick="location.href='log_in.php'">Purchase</button>
                                 <?php else: ?>
-                                    <button class="purchase-btn" onclick="location.href='user_profile.php'">Purchase</button>
-                                <?php endif ?>
+                                    <form action="purchase.php" method="POST">
+                                        <input type="hidden" name="product_id" value="<?php echo $row['product_id']; ?>">
+                                        <button class="purchase-btn" type="submit">Purchase</button>
+                                    </form>
+                                <?php endif; ?>
+                            <?php endif; ?>
                         </div>
                     </div>
                 </div>
@@ -330,7 +367,7 @@ $honda_product = $conn->query($sql_honda);
         <br>
         <p class="gmail">jetpadilla07@gmail.com | 0915-548-0755 | Cacarong Bata Pandi,Bulacan</p>
     </footer>
-    <button id="goup"><span class="arrow-up">^</span> </button>
+    <img id="goup" src="./images/header_img/go-up-svgrepo-com.svg" alt="" height="35">
     <script src="./js/slider.js">
     </script>
     <script src="./js/card.js"></script>
