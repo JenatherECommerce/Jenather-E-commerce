@@ -159,7 +159,7 @@ if (isset($_SESSION['purchase_message'])) {
     </section>
 
     <section class="sedan">
-        <?php if(mysqli_num_rows($suzuki_product3) > 0): ?>
+        <?php if(mysqli_num_rows($honda_product3) > 0): ?>
         <h1 id="sedans">S E D A N S</h1>
         <div class="card-container">
                 <?php
@@ -235,7 +235,7 @@ if (isset($_SESSION['purchase_message'])) {
     </section>
 
     <section class="suv">
-        <?php if(mysqli_num_rows($suzuki_product2) > 0): ?>
+        <?php if(mysqli_num_rows($honda_product2) > 0): ?>
         <h1 id="suv">S U V s</h1>
         <div class="card-container">
                 <?php
@@ -311,7 +311,7 @@ if (isset($_SESSION['purchase_message'])) {
     </section>
 
     <section class="mpv">
-        <?php if(mysqli_num_rows($suzuki_product4) > 0): ?>
+        <?php if(mysqli_num_rows($honda_product4) > 0): ?>
         <h1 id="mpv">M P V s</h1>
         <div class="card-container">
                 <?php
