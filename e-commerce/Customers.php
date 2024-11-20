@@ -6,7 +6,6 @@
     <title>Customer</title>
     <link rel="stylesheet" href="./styling_folder/admin.css">
     <link rel="stylesheet" href="./styling_folder/customers.css">
-
 </head>
 <body>
     <nav>
@@ -22,17 +21,26 @@
 
     <div class="customers">
         <div class="car_container">
-            <img src="./Images/Jenather_Logo.png" alt="">
+
+            <img id="carImage" src="./Images/Jenather_Logo.png" alt="">
         </div>
 
         <div class="car_owner">
-            
+
+            <?php 
+                include('buycar.php'); 
+    
+            ?>
         </div>
-
-
-
     </div>
 
-    
+    <script>
+  
+        function viewPurchasedCar(imageUrl) {
+  
+            document.getElementById('carImage').src = imageUrl;
+        }
+    </script>
+
 </body>
 </html>

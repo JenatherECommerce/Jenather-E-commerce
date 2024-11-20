@@ -68,10 +68,14 @@
             </div>
     
             <div id="update_list" class="hidden update_list"> 
-                <div class="button_container">
-                    <button class="carbrand" type="button" >Suzuki</button>
-                    <button class="carbrand" type="button" >Honda</button>
-                </div>
+            <div class="button_container">
+    <button class="carbrand" type="button" onclick="showCarContent('Suzuki')">Suzuki</button>
+    <button class="carbrand" type="button" onclick="showCarContent('Honda')">Honda</button>
+</div>
+
+<div class="suzukifetchingphp"></div>
+<div class="hondafetchingphp"></div>
+
                 
                 
             </div> 

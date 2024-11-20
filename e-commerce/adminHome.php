@@ -26,8 +26,15 @@
             <?php include('admin_count_users.php'); ?> 
             
         </div>
-        <div class="content_1"><h1>Income</h1></div>
-        <div class="content_1"><h1>Orders</h1></div>
+        <div class="content_1">
+            <h1>Income</h1>
+            <?php include('income.php'); ?> 
+    </div>
+        <div class="content_1">
+            <h1>Orders</h1>
+            <?php include('admin_count_buycar.php'); ?> 
+
+        </div>
     </div>
 
     <div class="list_account">

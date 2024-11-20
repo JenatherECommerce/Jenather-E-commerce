@@ -19,7 +19,7 @@ if ($result) {
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
         $user_buy_car = $row['user_buy_car']; // Fetch the count
-        echo "<h3>Total cars purchased: " . $user_buy_car . "</h3>";
+        echo "<h3> " . $user_buy_car . "</h3>";
     } else {
         echo "<h3>0 cars purchased.</h3>";
     }

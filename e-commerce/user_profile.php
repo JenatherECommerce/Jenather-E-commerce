@@ -3,14 +3,14 @@ session_start();
 include("connect.php"); // Database connection
 
 if (!isset($_SESSION["username"])) {
-    // Redirect to login page if the user is not logged in
+   
     header("Location: login.php");
     exit();
 }
 
 $username = $_SESSION["username"];
 
-// Fetch user details from the database
+
 $query = "SELECT firstname, lastname, email, street, city, region, country 
           FROM customer_credentials 
           JOIN customer_address 
@@ -24,7 +24,7 @@ $result = $stmt->get_result();
 if ($result->num_rows > 0) {
     $user = $result->fetch_assoc();
 } else {
-    // Handle the case where no user is found
+   
     echo "Error: User details not found.";
     exit();
 }
