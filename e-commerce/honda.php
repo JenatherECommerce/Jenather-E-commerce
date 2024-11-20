@@ -95,7 +95,7 @@ if (isset($_SESSION['purchase_message'])) {
                     <div class="card-content">
                         <div class="content">
                             <h2 class="card-title"><?php echo $row['product_name'] ?></h2>
-                            <h3 class="price"><b><?php echo "Price: " . number_format($row['product_price'],2) ?></b></h3>
+                            <h3 class="price"><b><?php echo "Price: ₱" . number_format($row['product_price'],2) ?></b></h3>
                             <?php if ($isOutOfStock): ?>
                                 <p class="out-of-stock" style="color: red; font-weight: bold;">Out of Stock</p>
                             <?php else: ?>
@@ -171,7 +171,7 @@ if (isset($_SESSION['purchase_message'])) {
                     <div class="card-content">
                         <div class="content">
                             <h2 class="card-title"><?php echo $row['product_name'] ?></h2>
-                            <h3 class="price"><b><?php echo "Price: " . number_format($row['product_price'],2) ?></b></h3>
+                            <h3 class="price"><b><?php echo "Price: ₱" . number_format($row['product_price'],2) ?></b></h3>
                             <?php if ($isOutOfStock): ?>
                                 <p class="out-of-stock" style="color: red; font-weight: bold;">Out of Stock</p>
                             <?php else: ?>
@@ -247,7 +247,7 @@ if (isset($_SESSION['purchase_message'])) {
                     <div class="card-content">
                         <div class="content">
                             <h2 class="card-title"><?php echo $row['product_name'] ?></h2>
-                            <h3 class="price"><b><?php echo "Price: " . number_format($row['product_price'],2) ?></b></h3>
+                            <h3 class="price"><b><?php echo "Price: ₱" . number_format($row['product_price'],2) ?></b></h3>
                             <?php if ($isOutOfStock): ?>
                                 <p class="out-of-stock" style="color: red; font-weight: bold;">Out of Stock</p>
                             <?php else: ?>
@@ -323,7 +323,7 @@ if (isset($_SESSION['purchase_message'])) {
                     <div class="card-content">
                         <div class="content">
                             <h2 class="card-title"><?php echo $row['product_name'] ?></h2>
-                            <h3 class="price"><b><?php echo "Price: " . number_format($row['product_price'],2) ?></b></h3>
+                            <h3 class="price"><b><?php echo "Price: ₱" . number_format($row['product_price'],2) ?></b></h3>
                             <?php if ($isOutOfStock): ?>
                                 <p class="out-of-stock" style="color: red; font-weight: bold;">Out of Stock</p>
                             <?php else: ?>
@@ -413,7 +413,7 @@ if (isset($_SESSION['purchase_message'])) {
             </ul>
         </div>
     </section>
-    <button id="goup"><span class="arrow-up">^</span> </button>
+    <img src="./images/profile_svg/go-up-svgrepo-com.svg" alt="" height='35' id="goup">
     <script src="./js/slider.js">
     </script>
     <script src="./js/card.js"></script>

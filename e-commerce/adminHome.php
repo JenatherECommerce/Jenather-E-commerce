@@ -10,8 +10,8 @@
 </head>
 <body>
     <nav>
-        <img src="https://res.cloudinary.com/diwwqfwjb/image/upload/v1725281506/Jenather-Ecommerce/nwqfas3que4whtkngexj.png" alt="logo">
         <ul>
+            <img src="https://res.cloudinary.com/diwwqfwjb/image/upload/v1725281506/Jenather-Ecommerce/nwqfas3que4whtkngexj.png" alt="logo">
             <li><a href="adminHome.php">Home</a></li>
             <li><a href="Profile.php">Profile</a></li>
             <li><a href="Customers.php">Customer</a></li>

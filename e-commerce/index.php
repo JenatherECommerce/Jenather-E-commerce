@@ -71,12 +71,6 @@ if (isset($_SESSION['purchase_message'])) {
                     </span>
                     <span class="text">Suzuki</span>
                 </button>
-                <button class="main-btn" id="listofcars">
-                    <span class="circle">
-                        <span class="arrow"></span>
-                    </span>
-                    <span class="text">List of Cars</span>
-                </button>
                 <button class="main-btn" id="honda">
                     <span class="circle">
                         <span class="arrow"></span>
@@ -99,7 +93,7 @@ if (isset($_SESSION['purchase_message'])) {
                     <div class="card-content">
                         <div class="content">
                             <h2 class="card-title"><?php echo $row['product_name'] ?></h2>
-                            <h3 class="price"><b><?php echo "Price: " . number_format($row['product_price'],2) ?></b></h3>
+                            <h3 class="price"><b><?php echo "Price: ₱" . number_format($row['product_price'],2) ?></b></h3>
                             <?php if ($isOutOfStock): ?>
                                 <p class="out-of-stock" style="color: red; font-weight: bold;">Out of Stock</p>
                             <?php else: ?>
@@ -187,7 +181,7 @@ if (isset($_SESSION['purchase_message'])) {
                     <div class="card-content">
                         <div class="content">
                             <h2 class="card-title"><?php echo $row['product_name'] ?></h2>
-                            <h3 class="price"><b><?php echo "Price: " . number_format($row['product_price'],2) ?></b></h3>
+                            <h3 class="price"><b><?php echo "Price: ₱" . number_format($row['product_price'],2) ?></b></h3>
                             <?php if ($isOutOfStock): ?>
                                 <p class="out-of-stock" style="color: red; font-weight: bold;">Out of Stock</p>
                             <?php else: ?>
@@ -291,7 +285,7 @@ if (isset($_SESSION['purchase_message'])) {
         <h2 id="financing">Click Financing Partner for Auto Loan</h2>
     </div>
 
-    <section id="loan" id="loaning-section">
+    <section id="loan" id="loanings-section">
         <div class="loaningsec" id="bpi">
         <img style="width: 450px; height: 250px; object-fit: cover; z-index: 1;" src="images/finances_img/bpi.png" alt="">
             <div class="column">
@@ -367,7 +361,7 @@ if (isset($_SESSION['purchase_message'])) {
     </section>
 
     <footer id="contact-section">
-        <h1 style="position: absolute; padding: 30px; left:100px; font-size: 50px; color: white;">CONTACT US</h1>
+        <h1 style="position: absolute; padding: 30px; left:300px; font-size: 50px; color: white;">CONTACT US</h1>
         <img style="object-fit: cover; width: 100%; margin: 0 auto; max-width: 1300px;" src="images/header_img/car interior design.jpeg" alt="">
         <p class="gmail">faboradanathaniel@gmail.com | 0966-671-2004 | Cacarong Matanda Pandi, Bulacan</p>
         <br>
@@ -375,7 +369,7 @@ if (isset($_SESSION['purchase_message'])) {
         <br>
         <p class="gmail">jetpadilla07@gmail.com | 0915-548-0755 | Cacarong Bata Pandi,Bulacan</p>
     </footer>
-    <img id="goup" src="./images/header_img/go-up-svgrepo-com.svg" alt="" height="35">
+    <img src="./images/profile_svg/go-up-svgrepo-com.svg" alt="" height='35' id="goup">
     <script src="./js/slider.js">
     </script>
     <script src="./js/card.js"></script>

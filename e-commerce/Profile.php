@@ -16,7 +16,7 @@
             <li><a href="Profile.php">Profile</a></li>
             <li><a href="Customers.php">Customer</a></li>
             <li><a href="Inventory.php">Inventory</a></li>
-            <li><a href="">Logout</a></li>
+            <li><a href="logout.php">Logout</a></li>
         </ul>
     </nav>
 
@@ -27,9 +27,9 @@
             <form action="Profile_admin.php" method="post" class="reset_container">
                 <h1 id="Admin_Access">Admin Access</h1>
                 <h1 id="Username">Username</h1>
-                <input type="text" name="username" placeholder="Change Username">
+                <input type="text" name="username" placeholder="New Username" required>
                 <h1 id="Password">Password</h1>
-                <input type="text" name="password" placeholder="Change Password">
+                <input type="password" name="password" placeholder="New Password" required>
                 <button type="submit" name="signUp">Submit</button>
 
             </form>
