@@ -14,6 +14,18 @@ document.getElementById('promos').addEventListener('click', () => {
     document.getElementById('promos-section').scrollIntoView({ behavior: "smooth"})
 })
 
+document.getElementById('loans').addEventListener('click', () => {
+    document.getElementById('loan').scrollIntoView({ behavior: "smooth"})
+})
+
+document.getElementById('headers').addEventListener('click', () => {
+    document.getElementById('header-section').scrollIntoView({ behavior: "smooth"})
+})
+
+document.getElementById('contactus').addEventListener('click', () => {
+    document.getElementById('contact-section').scrollIntoView({ behavior: "smooth"})
+})
+
 document.addEventListener("DOMContentLoaded", () => {
         const popup = document.getElementById("popup");
         const closePopup = document.getElementById("closePopup");
