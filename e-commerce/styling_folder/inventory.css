@@ -25,7 +25,7 @@ form{
 
 .section1{
     width: 1200px;
-    height: 300px;
+    min-height: 150px; 
     display: flex;
 
 }
@@ -95,7 +95,7 @@ form{
 
 .update_list{
     width: 1200px;
-    height: 1010px;
+    min-height: 150px; 
     background-color: azure;
 }
 
@@ -109,4 +109,57 @@ form{
 
 .hidden{
     display: none;
+}
+
+.car-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 16px;
+    margin: 16px 0;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .car-image {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    border-radius: 8px;
+  }
+  
+  .car-name {
+    font-size: 1.5em;
+    margin: 8px 0;
+  }
+  
+  .car-details {
+    font-size: 1em;
+    color: #555;
+  }
+  
+  .button-group {
+    margin-top: 12px;
+  }
+  
+  .btn {
+    padding: 8px 16px;
+    margin: 0 4px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .btn.update {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .btn.delete {
+    background-color: #dc3545;
+    color: white;
+  }
+  
+  .car-details {
+    font-size: 14px;
+    color: #333;
 }
